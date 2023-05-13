@@ -86,5 +86,45 @@ public class SimpleLock  implements Lock {
 
 
 
+    public static void main(String args[]) throws  Exception{
+        SimpleLock  lock = new SimpleLock();
+
+        for(int index = 0 ; index < 5 ; index++ ) {
+            Thread t = new Thread(
+                    () -> {
+
+                        try {
+
+                            System.out.println(Thread.currentThread().getName() + " is acquiring lock");
+                            lock.lock();
+                            System.out.println(Thread.currentThread().getName() + " acquired lock successfully");
+                            Thread.sleep(3000);
+                        } catch (InterruptedException ex) {
+
+                        } finally {
+
+
+                            lock.unlock();
+                            System.out.println(Thread.currentThread().getName() + " release lock successfully");
+                        }
+                    },
+
+                    "Thread " + index
+
+            );
+
+
+            t.start();
+        }
+//        Thread.sleep(5000);
+    //    t1.start();
+
+        Thread.sleep(3000);
+        lock.unlock();
+        Thread.sleep(10000);
+
+
+
+    }
 
 }
