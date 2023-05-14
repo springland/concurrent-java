@@ -89,7 +89,7 @@ public class SimpleLock  implements Lock {
     public static void main(String args[]) throws  Exception{
         SimpleLock  lock = new SimpleLock();
 
-        for(int index = 0 ; index < 5 ; index++ ) {
+        for(int index = 0 ; index < 3 ; index++ ) {
             Thread t = new Thread(
                     () -> {
 
