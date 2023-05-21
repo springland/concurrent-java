@@ -10,10 +10,10 @@ public class CountDownLatch {
         public Sync(int count){
             setState(count);
         }
+//        protected boolean isHeldExclusively(){
+//            return false ;
+//        }
 
-        protected boolean isHeldExclusively(){
-            return false ;
-        }
 
         protected int tryAcquireShared(int arg) {
 
